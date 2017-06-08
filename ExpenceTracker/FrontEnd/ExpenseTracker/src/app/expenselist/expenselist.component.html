@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div *ngIf="!expenses">Loading Expenses...</div>
+        <div *ngIf="expenses">
+            <div *ngFor="let expense of expenses">
+                <div class="col-md-3 col-lg-3 item">
+                    <ul>
+                        <li>Name : {{ expense.name }}</li>
+                        <li>Cost : {{ expense.cost }}</li>
+                        <li>Purchase Date : {{ expense.purchased_date | date : short }}</li>
+                    </ul>
+                    <button class="btn btn-danger" (click)="deleteExpense(expense.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

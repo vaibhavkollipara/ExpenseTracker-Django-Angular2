@@ -1,0 +1,19 @@
+<div class="container text-center">
+    <form [formGroup]="expenseForm" (ngSubmit)="addExpense()">
+        <input autofocus type="text" class="form-control" formControlName="name" placeholder="name">
+            <div *ngIf="expenseForm.controls['name'].hasError('required') && !expenseForm.controls['name'].untouched " class="alert alert-danger">
+                          Please Enter Item Name
+            </div>
+
+        <input type="text" class="form-control" formControlName="cost" placeholder="cost">
+            <div *ngIf="expenseForm.controls['cost'].hasError('required') && !expenseForm.controls['cost'].untouched " class="alert alert-danger">
+                          Please Enter Cost
+            </div>
+
+        <input type="date" class="form-control  fullwidth" formControlName="purchaseDate">
+            <div *ngIf="expenseForm.controls['cost'].hasError('required') && !expenseForm.controls['cost'].untouched " class="alert alert-danger">
+                          Purchase Date Required
+            </div><br/>
+        <button class="btn btn-primary" type="submit">Add Expense</button>
+    </form>
+</div>
